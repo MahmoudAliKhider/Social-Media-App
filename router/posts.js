@@ -29,4 +29,18 @@ try {
     
 }})
 
+//get All post
+router.get('/',async(req,res)=>{
+    const post = await Post.find()
+    try {
+      res.status(200).json(post)
+
+        
+    } catch (err) {
+        res.status(400).json(err)
+        
+    }
+})
+//
+
 module.exports=router
