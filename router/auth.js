@@ -23,5 +23,24 @@ router.post('/register',async(req,res)=>{
 
 })
 
+//login
+router.post('/login',async(req,res)=>{
+    try {
+        const user = await userModule.findOne({email:req.body.email})
+        !user&&res.status(400).json('email is not exist')
+
+        ValidatPass = await bycrpt.compare(req.body.password , user.password)
+        !ValidatPass&& res.status(200).json("Incorrect Password");
+
+       // const {password, ...others} =user._doc
+        res.status(200).json(user);
+
+    } catch (err) {
+    res.status(500).json(err)
+   
+        
+    }
+})
+
 module.exports = router
 
