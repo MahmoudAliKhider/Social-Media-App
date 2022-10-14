@@ -67,4 +67,25 @@ router.get('/:id',async(req,res)=>{
     }
 })
 
+//like/dislike a post
+router.put('/:id/like',async (req,res)=>{
+    try {
+        const post = await Post.findById(req.params.id)
+        //لو userId  موجود===>Like:disLike
+        if(!post.likes.includes(req.body.userId)){
+            await post.updateOne({$push:{likes:req.body.userId}})
+        res.status(200).json("the post has been liked")
+
+        }else{
+            await post.updateOne({$pull:{likes:req.body.userId}})
+            res.status(200).json("the post has been disliked")
+        }
+    } catch (err) {
+        res.status(400).json(err)
+        console.log(err)
+        
+    }
+})
+
+
 module.exports=router
