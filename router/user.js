@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 
 //update 
 router.put('/update/:id',async(req,res)=>{
+    //بقارن بين (userId=>الي موجود في body),id=>الي في)(url)
     if(req.body.userId === req.params.id || req.body.isAdmin){
         if(req.body.password){
             try {
