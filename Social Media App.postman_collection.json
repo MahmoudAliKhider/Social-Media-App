@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"Mahmoud Khider\",\r\n    \"email\":\"mahmoud37@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"raw": "{\r\n    \"username\":\" Khider\",\r\n    \"email\":\"Ali37@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -42,6 +42,209 @@
 							}
 						},
 						"url": "http://localhost:3000/api/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Add new Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6346f8ce5cae414a93c49352\",\r\n    \"desc\":\"Any thing con describtion  the post 1\",\r\n    \"img\":\"https://th.bing.com/th/id/OIP.R_Xq82OLdw9lZr9eTd-KKgHaGZ?pid=ImgDet&rs=1\",\r\n    \"likes\":[]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/posts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:3000/api/posts/delete/634707eef7bc1625bee90757"
+					},
+					"response": []
+				},
+				{
+					"name": "Get post By id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/posts/6346ffb13201d877acbfb19d"
+					},
+					"response": []
+				},
+				{
+					"name": "Like/dislike post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6346f280ecfaa6215e6cea42\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/posts/63495b378d75675eeeddda26/like"
+					},
+					"response": []
+				},
+				{
+					"name": "Update post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6346f8ce5cae414a93c49352\",\r\n    \"desc\":\"description what post are mean\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/posts/6346ffb13201d877acbfb19d"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/posts/"
+					},
+					"response": []
+				},
+				{
+					"name": "timeline Post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6346f280ecfaa6215e6cea42\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/posts/timeline/all"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"desc\":\"Update description description description description\",\r\n    \"userId\":\"6346f280ecfaa6215e6cea42\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/users/update/6346f280ecfaa6215e6cea42"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"63499773ee59cf9c83ae27ff\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/users/delete/63499773ee59cf9c83ae27ff"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/users/6346f8ce5cae414a93c49352"
+					},
+					"response": []
+				},
+				{
+					"name": "Follow",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6346f280ecfaa6215e6cea42\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/users/6346f8ce5cae414a93c49352/follow"
+					},
+					"response": []
+				},
+				{
+					"name": "Un follow",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6346f8ce5cae414a93c49352\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/users/6346f280ecfaa6215e6cea42/unfollow"
 					},
 					"response": []
 				}
