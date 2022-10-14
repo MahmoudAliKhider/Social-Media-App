@@ -52,6 +52,44 @@ router.delete('/delete/:id',async(req,res)=>{
 
     }
 })
+//get user
+router.get('/:id',async(req,res)=>{
+    try {
+        const user = await User.findById(req.params.id)
+        res.status(400).json(user)
+
+    } catch (err) {
+        res.status(400).json(err)
+        
+    }
+})
+
+//user Follow
+router.put('/:id/follow',async(req,res)=>{
+    if( req.body.userId !== req.params.id){
+        try {
+            const user = await User.findById(req.params.id);
+            const currentUser = await User.findById(req.body.userId)
+            if(!user.followers.includes(req.body.userId)){
+                await user.updateOne({$push:{followers:req.body.userId}})
+                await currentUser.updateOne({$push:{followings:req.params.id}})
+            res.status(400).json('you has been follow')
+
+            }else{
+            res.status(400).json('Already follow')
+
+            }
+            
+        } catch (err) {
+        res.status(400).json(err)
+            
+        }
+
+    }else{
+        res.status(400).json("you can`t follow your self")
+
+    }
+})
 
 
 
