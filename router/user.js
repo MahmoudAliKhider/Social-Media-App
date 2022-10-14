@@ -33,5 +33,26 @@ router.put('/update/:id',async(req,res)=>{
     }
 })
 
+//delete
+router.delete('/delete/:id',async(req,res)=>{
+    //بقارن بين (userId=>الي موجود في body),id=>الي في)(url)
+    if(req.body.userId === req.params.id || req.body.isAdmin){
+        
+        try {
+            const user = await User.findByIdAndDelete(req.params.id)
+            res.status(200).json("Account Has been deleted")
+
+            
+        } catch (err) {
+            res.status(400).json(err)
+            
+        }
+    }else{
+        res.status(400).json("you can`t delete Account!")
+
+    }
+})
+
+
 
 module.exports = router;
